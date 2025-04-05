@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Now - KT's RENTALS</title>
+  <style>
+   
+  </style>
+  <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="booking.html">Booking</a>
+  </div>
+
+  <h2>Book Your Ride Now</h2>
+  <p class="note"><strong>Negotiation is welcome—go ahead and book your ride with confidence.</strong></p>
+
+  <form id="bookingForm" onsubmit="sendWhatsApp(); return false;">
+    <input type="text" id="fullname" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+    <input type="text" id="location" placeholder="Pickup Location" required>
+    <input type="date" id="date" required>
+
+    <select id="destination" required>
+      <option value="">Select Destination</option>
+      <option>Drop off within Accra (6km) – $15</option>
+      <option>Drop off within Accra (15km) – $25</option>
+      <option>Hourly Rental (2hrs - 5hrs) – $15/hr</option>
+      <option>Daily Rental within Accra (9am-5pm) – $80</option>
+      <option>Aburi Gardens – $50</option>
+      <option>Kokrobite – $50</option>
+      <option>Cape Coast Castle – $145</option>
+      <option>Cape Coast & Elmina Castle – $165</option>
+      <option>Cape Coast, Elmina & Kakum – $185</option>
+      <option>Kumasi – $200</option>
+    </select>
+
+    <button type="submit">Send Booking via WhatsApp</button>
+  </form>
+
+  <footer>
+    &copy; 2025 KT's RENTALS. All rights reserved.
+  </footer>
+
+  <script>
+    function sendWhatsApp() {
+      const name = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+      const location = document.getElementById("location").value;
+      const date = document.getElementById("date").value;
+      const destination = document.getElementById("destination").value;
+
+      const message = `Booking Details:
+- Name: ${name}
+- Email: ${email}
+- Pickup Location: ${location}
+- Date: ${date}
+- Destination: ${destination}`;
+
+      const phoneNumber = "233557032280"; // Replace with your WhatsApp number without +
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
